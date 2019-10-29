@@ -72,7 +72,7 @@ async def leave(ctx):
 
 @client.command()
 async def olavo(ctx):
-    embed = discord.Embed (color=0xff69b4, timestamp=datetime.datetime.utcnow())
+    embed = discord.Embed (color=0xff69b4)
     embed.set_image (url = 'https://i.imgur.com/QsRNR5N.jpg')
     embed.set_footer(text=f'Olavo não está feliz')
 
