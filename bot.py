@@ -5,7 +5,7 @@ from discord.utils import get
 import random
 
 client = commands.Bot(command_prefix = '.')
-olavao = ['https://github.com/jobara69/changedaworld/blob/master/bot.py']
+olavao = ['https://i.imgur.com/QsRNR5N.jpg']
 
 @client.event
 async def on_ready():
