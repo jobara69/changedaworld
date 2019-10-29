@@ -78,4 +78,11 @@ async def olavo(ctx):
 
     await ctx.send(embed=embed)
 
+@client.command()
+async def triste(ctx):
+    embed = discord.Embed (color=0xff69b4)
+    embed.set_image (url = 'https://acegif.com/wp-content/gifs/sad-cat-60-gap.jpg')
+    embed.set_footer (text=f'to triste')
+    await ctx.send(embed=embed)
+
 client.run(os.environ['DISCORD_TOKEN'])
