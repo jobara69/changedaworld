@@ -1,17 +1,15 @@
 import discord
+from discord.ext import commands
 import os
 
-client = discord.Client()
+client = commands.Bot(command_prefix = '.')
 
 @client.event
 async def on_ready():
     print ('Bot is ready')
 
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        return
-    else:
-        await message.channel.send('Bando de gay')
-        
+@client.command()
+async def ping(ctx):
+    await ctx.send('Pong!')
+    
 client.run(os.environ['DISCORD_TOKEN'])
