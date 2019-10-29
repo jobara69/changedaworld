@@ -2,13 +2,12 @@ import discord
 import youtube_dl
 from discord.ext import commands
 from discord.utils import get
-import os
 
 client = commands.Bot(command_prefix = '.')
-players = {}
 
 @client.event
 async def on_ready():
+    await client.change_presence(activity = discord.Game ('me mata, por favor'))
     print ('Bot is ready')
 
 @client.command(aliases = ['J', 'joi'])
@@ -44,10 +43,5 @@ async def leave(ctx):
     else:
         print ('Acho que meu pai é gay')
         await ctx.send ('vai se fuder, porra, quer que o bot saia sem nem ta em lugar nenhum')
-
-@client.command()
-async def play (ctx, url):
-    voice = await message.author.voice.channel.connect()
-    voice.play(discord.FFmpegPCMAudio('./res/rick_roll.mp3'))
 
 client.run('NjM4NDkzMTY0NTIwNDcyNTg3.Xbewtw.hC4IID02hwMWeyhKTOtztNeyN0g')
