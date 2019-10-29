@@ -10,6 +10,6 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-    await ctx.send('Pong!')
+    await ctx.send('Pong! {round(client.latency * 1000)} ms')
     
 client.run(os.environ['DISCORD_TOKEN'])
