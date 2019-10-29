@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands, tasks
 import os
 from discord.utils import get
-import random
 
 client = commands.Bot(command_prefix = '.')
 
@@ -55,6 +54,6 @@ async def leave(ctx):
                      'calos leite de minhápica',
                      'vai se fuder, porra, quer que o bot saia sem nem ta em lugar nenhum']
 
-        await ctx.send (f'{random.choise(responses)}')
+        await ctx.send (f'{random.choice(responses)}')
 
 client.run(os.environ['DISCORD_TOKEN'])
