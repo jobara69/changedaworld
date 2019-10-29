@@ -70,4 +70,8 @@ async def leave(ctx):
 
         await ctx.send (f'{random.choice(responses)}')
 
+@client.command()
+async def olavo(ctx):
+    await ctx.send ('https://i.imgur.com/QsRNR5N.jpg')
+
 client.run(os.environ['DISCORD_TOKEN'])
