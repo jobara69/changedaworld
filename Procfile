@@ -1,0 +1,1 @@
+worker: phyton bot2.py
