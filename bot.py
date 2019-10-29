@@ -5,7 +5,6 @@ from discord.utils import get
 import random
 
 client = commands.Bot(command_prefix = '.')
-olavao = ['https://i.imgur.com/QsRNR5N.jpg']
 
 @client.event
 async def on_ready():
@@ -73,7 +72,6 @@ async def leave(ctx):
 
 @client.command()
 async def olavo(ctx):
-    chosen_image = olavao
-    await ctx.send (f'{chosen_image}')
+    await ctx.send (f'https://i.imgur.com/QsRNR5N.jpg')
 
 client.run(os.environ['DISCORD_TOKEN'])
