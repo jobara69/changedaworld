@@ -7,4 +7,11 @@ client = discord.Client()
 async def on_ready():
     print ('Bot is ready')
 
-client.run('NjM4NDkzMTY0NTIwNDcyNTg3.Xbh7eA.tjLf1ZXOWvVsQZAH2Co8UtIeBZ8')
+@client.event
+async def on_message(message):
+    if message.author.bot:
+        return
+    else:
+        await message.channel.send('Bando de gay')
+        
+client.run(os.environ['DISCORD_TOKEN'])
