@@ -34,11 +34,11 @@ async def join(ctx):
         voice = await channel.connect()
         print (f'O bot foi conectado no {channel}\n')
 
-    resposes = ['Ui, que delícia, entrei no {channel}',
-                'Kebab time no {channel}',
-                'Separa a vó do carlos pra mim no {channel}',
-                'Fudeu, tem uma bomba no {channel}',
-                'Mulher é merda, só no {channel}']
+    resposes = [f'Ui, que delícia, entrei no {channel}',
+                f'Kebab time no {channel}',
+                f'Separa a vó do carlos pra mim no {channel}',
+                f'Fudeu, tem uma bomba no {channel}',
+                f'Mulher é merda, só no {channel}']
 
     await ctx.send(f'{random.choice(resposes)}')
 
@@ -51,11 +51,11 @@ async def leave(ctx):
         await voice.disconnect()
         print(f'Desconectado do {channel}')
 
-        resposes = ['Saí dessa merda que é o {channel}',
-                    'Só tem vagabundo, prostituta e drogado no {channel}',
-                    'Tenho que levar minha vó no jiu-jitsu',
-                    'O {channel} é gay',
-                    'Carlos chupa pica no {channel}']
+        resposes = [f'Saí dessa merda que é o {channel}',
+                    f'Só tem vagabundo, prostituta e drogado no {channel}',
+                    f'Tenho que levar minha vó no jiu-jitsu',
+                    f'O {channel} é gay',
+                    f'Carlos chupa pica no {channel}']
         
         await ctx.send (f'{random.choice(responses)}')
     else:
