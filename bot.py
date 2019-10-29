@@ -8,4 +8,4 @@ client = commands.Bot(command_prefix = '.')
 async def on_ready():
     print ('Bot is ready')
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run('NjM4NDkzMTY0NTIwNDcyNTg3.Xbh7eA.tjLf1ZXOWvVsQZAH2Co8UtIeBZ8')
