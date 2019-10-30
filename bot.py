@@ -80,8 +80,8 @@ async def play (ctx, *args):
 
         if args[0] == "change":
             print("agora")
-            player = voice_player.create_ffmpeg_player("https://s1.vocaroo.com/media/download_temp/Vocaroo_s1SdKucyFyaP.mp3")
-            player.start()
+            voice_player.play(discord.FFmpegPCMAudio("https://s1.vocaroo.com/media/download_temp/Vocaroo_s1SdKucyFyaP.mp3"))
+
 
 @client.command()
 async def olavo(ctx):
