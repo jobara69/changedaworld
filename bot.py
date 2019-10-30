@@ -85,4 +85,11 @@ async def triste(ctx):
     embed.set_footer (text=f'to triste')
     await ctx.send(embed=embed)
 
+@client.command()
+async def olavo2(ctx):
+    chose_image = random.choice (olavo.olavo_imagens)
+    embed = discord.Embed (color=0xff69b4)
+    embed.set_image (url = chosen_image)
+    await ctx.send (embed=embed)
+
 client.run(os.environ['DISCORD_TOKEN'])

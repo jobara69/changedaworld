@@ -1,0 +1,1 @@
+olavo_imagens = ['https://static.poder360.com.br/2019/03/Olavo-de-Carvalho-868x644.png', 'https://static.congressoemfoco.uol.com.br/2018/11/olavo-de-carvalho.png', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnxnEMfxft1FdkQZ00Uco7xgjrky0zDkSOZJnLtsNAx7WeCx7MqQ&s']
