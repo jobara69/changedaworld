@@ -77,7 +77,7 @@ async def play(ctx, url):
         return
     await ctx.send('Ta quase, já vai tocar')
     print ('ta vindo a música')
-    voice=get(bot.voice_clients, guild=ctx.guild)
+    voice=get(client.voice_clients, guild=ctx.guild)
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
