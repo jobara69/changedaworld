@@ -2,6 +2,4 @@ discord
 PyNaCl
 youtube_dl
 ffmpeg
-avconv
 ffprobe
-avprobe
