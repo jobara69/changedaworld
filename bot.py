@@ -74,8 +74,8 @@ async def leave(ctx):
 @client.command()
 async def yt(ctx, url):
     guild=ctx.message.guild
-    voice_client=client.voice_client_in(guild)
-    player=await voice_client.create_ytdl_player(url)
+    voice = get(client.voice_clients, guild=ctx.guild)
+    player=await voice.create_ytdl_player(url)
     players[guild.id]=player
     player.start()
 
