@@ -88,7 +88,7 @@ async def triste(ctx):
 
 @client.command()
 async def olavo2(ctx):
-    chose_image = random.choice (olavo.olavo_imagens)
+    chose_image = random.choice (olavo_imagens)
     embed = discord.Embed (color=0xff69b4)
     embed.set_image (url = chosen_image)
     await ctx.send (embed=embed)
