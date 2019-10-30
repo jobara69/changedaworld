@@ -72,15 +72,12 @@ async def leave(ctx):
         await ctx.send (f'{random.choice(responses)}')
 
 @client.command()
-async def play (ctx, *args):
-    if len(args) == 0:
-        await ctx.send('CHANGE DA WORLD')
-    else:
-        voice_player = await ctx.message.author.voice.channel.connect()
-
-        if args[0] == "change":
-            print("agora")
-            voice_player.play(discord.FFmpegPCMAudio("https://s1.vocaroo.com/media/download_temp/Vocaroo_s1SdKucyFyaP.mp3"))
+async def yt(ctx, url):
+    server=ctx.message.server
+    voice_client=client.voice_client_int(server)
+    player=await voice_client.create_ytdl_player(url)
+    players[server.id]=player
+    player.start()
 
 
 @client.command()
