@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 import os
 from discord.utils import get
 import random
+import youtube_dl
 
 client = commands.Bot(command_prefix = '.')
 olavo_imagens = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnxnEMfxft1FdkQZ00Uco7xgjrky0zDkSOZJnLtsNAx7WeCx7MqQ&s','https://static.congressoemfoco.uol.com.br/2018/11/olavo-de-carvalho.png','https://static.poder360.com.br/2019/03/Olavo-de-Carvalho-868x644.png']
@@ -68,8 +69,15 @@ async def leave(ctx):
                      'vô comer tua mãe',
                      'calos leite de minhápica',
                      'vai se fuder, porra, quer que o bot saia sem nem ta em lugar nenhum']
-
         await ctx.send (f'{random.choice(responses)}')
+
+@client.command()
+async def yt(ctx, url):
+    author = ctx.message.author
+    voice_channel = author.voice_channel
+    vc = await client.join_voice_channel(voice_channel)
+    player=await vc.create_ytdl_player(url)
+    player.start()
 
 @client.command()
 async def olavo(ctx):
