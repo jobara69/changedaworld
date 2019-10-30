@@ -4,7 +4,7 @@ import os
 from discord.utils import get
 import random
 import youtube_dl
-from discord import FFmpegPCMAudio
+import ffmpeg
 from os import system
 
 client = commands.Bot(command_prefix = '.')
