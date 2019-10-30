@@ -68,13 +68,33 @@ async def leave(ctx):
 
 @client.command()
 async def play(ctx, url):
-    guild=ctx.message.guild
-    voice = get(client.voice_clients, guild=ctx.guild)
-    player=await voice.create_ytdl_player(url)
-    players[guild.id]=player
-    player.start()
-
-
+    song_there = os.path.isfile('song.mp3')
+    try:
+        if song_there:
+            os.remove('song.mp3')
+    except PermissionError:
+        await ctx.send('Espera a música acarbar o seu merda')
+        return
+    await ctx.send('Ta quase, já vai tocar')
+    print ('ta vindo a música')
+    voice=get(bot.voice_clients, guild=ctx.guild)
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+            }]
+        }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+    for file in os.listdir('./'):
+        if file.endswith('.mp3'):
+            os.rename(file, 'song.mp3')
+    voice.play(discord.FFmpegPCMAudio('song.mp3'))
+    voice.volume=100
+    voice.is_playing()
+    
 @client.command()
 async def olavo(ctx):
     embed = discord.Embed (color=0xff69b4)
