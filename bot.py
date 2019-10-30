@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 import os
 from discord.utils import get
 import random
+import olavo
 
 client = commands.Bot(command_prefix = '.')
 
