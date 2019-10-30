@@ -1,9 +1,11 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import os
 from discord.utils import get
 import random
 import youtube_dl
+from discord import FFmpegPCMAudio
+from os import system
 
 client = commands.Bot(command_prefix = '.')
 olavo_imagens = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnxnEMfxft1FdkQZ00Uco7xgjrky0zDkSOZJnLtsNAx7WeCx7MqQ&s','https://static.congressoemfoco.uol.com.br/2018/11/olavo-de-carvalho.png','https://static.poder360.com.br/2019/03/Olavo-de-Carvalho-868x644.png']
@@ -22,13 +24,6 @@ async def join(ctx):
     global voice
     channel = ctx.message.author.voice.channel
     voice = get(client.voice_clients, guild=ctx.guild)
-
-    if voice and voice.is_connected():
-        await voice.move_to(channel)
-    else:
-        voice = await channel.connect()
-
-    await voice.disconnect()
 
     if voice and voice.is_connected():
         await voice.move_to(channel)
@@ -72,7 +67,7 @@ async def leave(ctx):
         await ctx.send (f'{random.choice(responses)}')
 
 @client.command()
-async def yt(ctx, url):
+async def play(ctx, url):
     guild=ctx.message.guild
     voice = get(client.voice_clients, guild=ctx.guild)
     player=await voice.create_ytdl_player(url)
