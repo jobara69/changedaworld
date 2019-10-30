@@ -72,12 +72,16 @@ async def leave(ctx):
         await ctx.send (f'{random.choice(responses)}')
 
 @client.command()
-async def yt(ctx, url):
-    author = ctx.message.author
-    voice_channel = author.voice_channel
-    vc = await client.join_voice_channel(voice_channel)
-    player=await vc.create_ytdl_player(url)
-    player.start()
+async def play (ctx, *args):
+    if len(args) == 0:
+        await ctx.send('CHANGE DA WORLD')
+    else:
+        voice_player = await ctx.message.author.voice.channel.connect()
+
+        if args[0] == "change":
+            print("agora")
+            player = voice_player.create_ffmpeg_player("https://s1.vocaroo.com/media/download_temp/Vocaroo_s1SdKucyFyaP.mp3")
+            player.start()
 
 @client.command()
 async def olavo(ctx):
