@@ -111,6 +111,13 @@ async def triste(ctx):
     await ctx.send(embed=embed)
 
 @client.command()
+async def honk(ctx):
+    embed = discord.Embed (color=0xff69b4)
+    embed.set_image (url = 'https://i.kym-cdn.com/photos/images/newsfeed/001/566/686/65f.jpg')
+    embed.set_footer (text=f'Honk honk')
+    await ctx.send(embed=embed)
+
+@client.command()
 async def olavo2(ctx):
     chosen_image = random.choice (olavo_imagens)
     embed = discord.Embed (color=0xff69b4)
