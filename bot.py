@@ -118,6 +118,13 @@ async def honk(ctx):
     await ctx.send(embed=embed)
 
 @client.command()
+async def suicidio(ctx):
+    embed = discord.Embed (color=0xff69b4)
+    embed.set_image (url = 'https://i.kym-cdn.com/photos/images/original/001/581/013/142.gif')
+    embed.set_footer (text=f'Vou ali e já volto')
+    await ctx.send(embed=embed)
+
+@client.command()
 async def olavo2(ctx):
     chosen_image = random.choice (olavo_imagens)
     embed = discord.Embed (color=0xff69b4)
