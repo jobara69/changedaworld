@@ -2,7 +2,5 @@ discord
 PyNaCl
 youtube_dl
 ffmpeg
-importlib
-zipfile
-zipimport
-zlib
+pydub
+libav
