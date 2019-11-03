@@ -4,7 +4,6 @@ import os
 from discord.utils import get
 import random
 import youtube_dl
-import ffmpeg
 from os import system
 
 client = commands.Bot(command_prefix = '.')
@@ -74,33 +73,47 @@ async def leave(ctx):
         await ctx.send (f'{random.choice(responses)}')
 
 @client.command()
-async def play(ctx, url):
+async def play(ctx, url: str):
     song_there = os.path.isfile('song.mp3')
     try:
         if song_there:
-            os.remove('song.mp3')
+            os.remove ('song.mp3')
+            print ('Removed old song file')
     except PermissionError:
-        await ctx.send('Espera a música acarbar o seu merda')
+        print ('Trying to delete song file, but its being played')
+        await ctx.send ('ERROR: Ta tocando música')
         return
-    await ctx.send('Ta quase, já vai tocar')
-    print ('ta vindo a música')
-    voice=get(client.voice_clients, guild=ctx.guild)
+
+    await ctx.send ('Ta quase tocando, retardado')
+    
+    voice = get(bot.voice_clients, guild=ctx.guild)
+
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
             'preferredquality': '192',
-            }]
-        }
+        }],
+    }
+
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        print ('Downloading audio now\n')
         ydl.download([url])
+
     for file in os.listdir('./'):
         if file.endswith('.mp3'):
+            name = file
+            print ('Renamed File: {file}\n')
             os.rename(file, 'song.mp3')
-    voice.play(discord.FFmpegPCMAudio('song.mp3'))
-    voice.volume=100
-    voice.is_playing()
+
+    voice.play (discord.FFmpegPCMAudio ('song.mp3'), after = lambda e: print (f'{name} has finished playing'))
+    voice.source = discord.PCMVolumeTransformer(voice.source)
+    voice.source.volume = 0.07
+    
+    nname = name.rspit('-', 2)
+    await ctx.send (f'Playing: {nname}')
+    print ('playing\n')
     
 @client.command()
 async def olavo(ctx):
