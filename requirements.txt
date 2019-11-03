@@ -2,8 +2,6 @@ discord
 PyNaCl
 youtube_dl
 ffmpeg
-ftplib
-functools
 importlib
 zipfile
 zipimport
