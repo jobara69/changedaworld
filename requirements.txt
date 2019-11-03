@@ -2,7 +2,6 @@ discord
 PyNaCl
 youtube_dl
 ffmpeg
-fnmatch
 ftplib
 functools
 importlib
