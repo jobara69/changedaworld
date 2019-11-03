@@ -1,5 +1,4 @@
 discord
 PyNaCl
 youtube_dl
-ffprobe
-pydub
+ffmpeg
