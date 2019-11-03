@@ -2,5 +2,5 @@ discord
 PyNaCl
 youtube_dl
 ffmpeg-python
-LIBAV
+libav-11.3-win64.7z
 ffmpeg
