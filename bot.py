@@ -29,6 +29,13 @@ async def join(ctx):
         await voice.move_to(channel)
     else:
         voice = await channel.connect()
+
+    await voice.disconnect()
+
+    if voice and voice.is_connected():
+        await voice.move_to(channel)
+    else:
+        voice = await channel.connect()
         print (f'O bot foi conectado no {channel}\n')
 
     responses = [f'Ui, que delícia, entrei no {channel}',
