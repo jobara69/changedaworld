@@ -3,4 +3,4 @@ PyNaCl
 youtube_dl
 ffmpeg
 pydub
-libav
+Libav 12.3
