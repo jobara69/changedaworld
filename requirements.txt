@@ -2,3 +2,5 @@ discord
 PyNaCl
 youtube_dl
 ffmpeg-python
+LIBAV
+ffmpeg
